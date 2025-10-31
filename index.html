@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introduction to Information Systems - 2026 A</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* --- Global Styles --- */
+        body {
+            font-family: 'Lato', 'Arial', sans-serif;
+            background-color: #f4f7f6; /* A very light, soft background */
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 25px 40px;
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        /* --- Header & Instructor Info --- */
+        .header {
+            text-align: center;
+            padding-bottom: 25px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+
+        .header h1 {
+            color: #2c3e50; /* A deep, professional blue */
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .header h2 {
+            color: #34495e; /* A slightly lighter blue-gray */
+            font-size: 1.5rem;
+            font-weight: 400;
+            margin-bottom: 15px;
+        }
+
+        .header .instructor-info p {
+            font-size: 1.1rem;
+            color: #555;
+            margin: 5px 0;
+        }
+
+        .header .instructor-info a {
+            color: #3498db; /* A bright, clear blue for the link */
+            text-decoration: none;
+            font-weight: 700;
+            transition: color 0.3s ease;
+        }
+
+        .header .instructor-info a:hover {
+            color: #2980b9;
+            text-decoration: underline;
+        }
+
+        /* --- Section Styling --- */
+        .course-section {
+            margin-top: 35px;
+        }
+
+        .course-section h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #2c3e50;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 8px;
+            margin-bottom: 20px;
+        }
+
+        /* --- Course Description & Topics --- */
+        .course-description p {
+            font-size: 1.1rem;
+            color: #444;
+        }
+
+        .topics-list {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px; /* Spacing between the topic bubbles */
+            margin-top: 15px;
+        }
+
+        .topics-list li {
+            font-size: 0.95rem;
+            font-weight: 700;
+            background-color: #ecf0f1; /* Light gray bubble */
+            color: #34495e;
+            padding: 8px 16px;
+            border-radius: 20px; /* This creates the "pill" or "bubble" shape */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+        }
+
+        /* --- Course Notes Buttons --- */
+        .button-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr; /* Two columns of equal size */
+            gap: 25px; /* Space between the buttons */
+            margin-top: 20px;
+        }
+
+        .btn {
+            display: block;
+            padding: 20px 15px;
+            text-align: center;
+            font-size: 1.25rem;
+            font-weight: 700;
+            text-decoration: none;
+            color: #ffffff;
+            border-radius: 8px;
+            border: none;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px); /* Lifts the button slightly */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-summarized {
+            background: linear-gradient(135deg, #3498db, #2980b9); /* Blue gradient */
+        }
+
+        .btn-expanded {
+            background: linear-gradient(135deg, #2ecc71, #27ae60); /* Green gradient */
+        }
+
+        /* --- Lecture Recordings --- */
+        .lecture-recordings p {
+            font-size: 1.1rem;
+            color: #777;
+            font-style: italic;
+            text-align: center;
+            padding: 20px;
+            background-color: #fafafa;
+            border-radius: 8px;
+        }
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            .container {
+                margin: 15px;
+                padding: 20px 25px;
+            }
+
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .header h2 {
+                font-size: 1.25rem;
+            }
+
+            /* Stack buttons on small screens */
+            .button-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <header class="header">
+            <h1>Introduction to Information Systems for MIS students</h1>
+            <h2>Semester 2026 A</h2>
+            
+            <div class="instructor-info">
+                <p><strong>Dr. Shay Tsaban, Ph.D.</strong></p>
+                <p><a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a></p>
+            </div>
+        </header>
+
+        <main>
+            <section class="course-section course-description">
+                <h3>About This Course</h3>
+                <p>Welcome! In this course, we will explore the foundational concepts and modern applications of Information Systems. We will cover a wide range of topics to provide a comprehensive understanding of how technology drives modern business.</p>
+                <p>Key topics will include:</p>
+                
+                <ul class="topics-list">
+                    <li>TPS (Transaction Processing Systems)</li>
+                    <li>MIS (Management Information Systems)</li>
+                    <li>ESS (Executive Support Systems)</li>
+                    <li>CRM (Customer Relationship Management)</li>
+                    <li>ERP (Enterprise Resource Planning)</li>
+                    <li>E-Commerce</li>
+                    <li>Hardware and Software</li>
+                    <li>BI (Business Intelligence)</li>
+                    <li>AI (Artificial Intelligence)</li>
+                </ul>
+            </section>
+
+            <section class="course-section course-materials">
+                <h3>Course Notes</h3>
+                <div class="button-container">
+                    <a href="#" class="btn btn-summarized">
+                        Course Notes - Summarized
+                    </a>
+                    
+                    <a href="#" class="btn btn-expanded">
+                        Course Notes - Expanded
+                    </a>
+                </div>
+            </section>
+
+            <section class="course-section lecture-recordings">
+                <h3>Lectures Recordings</h3>
+                <p>
+                    Recordings will be posted here after each lecture.
+                </p>
+                </section>
+
+        </main>
+    </div>
+
+</body>
+</html>
