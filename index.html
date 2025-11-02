@@ -110,7 +110,7 @@
         /* --- Course Notes Buttons --- */
         .button-container {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* Two columns of equal size */
+            grid-template-columns: 1fr 1fr 1fr; /* Changed to three columns */
             gap: 25px; /* Space between the buttons */
             margin-top: 20px;
         }
@@ -143,7 +143,43 @@
             background: linear-gradient(135deg, #2ecc71, #27ae60); /* Green gradient */
         }
 
-        /* --- Lecture Recordings --- */
+        .btn-purple {
+            background: linear-gradient(135deg, #8e44ad, #9b59b6); /* Purple gradient */
+        }
+
+        /* --- Lecture Video Styling --- */
+        .video-container {
+            margin-top: 20px;
+        }
+
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 8px; /* Match site aesthetic */
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .video-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #444;
+            text-align: center;
+            margin-top: 15px;
+            margin-bottom: 30px; /* Space before next group */
+        }
+        
+        /* --- Lecture Recordings (Original Styling - Kept for reference) --- */
         .lecture-recordings p {
             font-size: 1.1rem;
             color: #777;
@@ -155,6 +191,12 @@
         }
 
         /* --- Responsive Design --- */
+        @media (max-width: 800px) { /* Added breakpoint for buttons */
+             .button-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
         @media (max-width: 600px) {
             .container {
                 margin: 15px;
@@ -211,22 +253,37 @@
             <section class="course-section course-materials">
                 <h3>Course Notes</h3>
                 <div class="button-container">
-                    <a href="#" class="btn btn-summarized">
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/Ef9LvV0nSnZMtgSvrmf3PmQB9zwGSGZjVbyx5fJjJEKLuA?e=6aktDG" class="btn btn-summarized">
                         Course Notes - Summarized
                     </a>
                     
-                    <a href="#" class="btn btn-expanded">
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/ES0QAYMl-m9Dq8kohNjZKXMBnZsQpIUNNpZmQdBWdqv8jQ?e=VRYwzP" class="btn btn-purple">
+                        Exercises and Detailed Solutions
+                    </a>
+                    
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/Efaf5c-nLexIvOVSa18c00AB3nij2hXpK-g1JesjweYonQ?e=p1h1BP" class="btn btn-expanded">
                         Course Notes - Expanded
                     </a>
                 </div>
             </section>
 
             <section class="course-section lecture-recordings">
-                <h3>Lectures Recordings</h3>
-                <p>
-                    Recordings will be posted here after each lecture.
-                </p>
-                </section>
+                <h3>Lecture Recordings - 8:15 Group</h3>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/JxPCbpT4_BE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-title">Lecture 1 - 31.10.2025 - Introduction to Information Systems - TPS, MIS, ESS</p>
+                </div>
+
+                <h3>Lecture Recordings - 10:55 Group</h3>
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/ZXhvvQosRyY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-title">Lecture 1 - 31.10.2025 - Introduction to Information Systems - TPS, MIS, ESS</p>
+                </div>
+            </section>
 
         </main>
     </div>
