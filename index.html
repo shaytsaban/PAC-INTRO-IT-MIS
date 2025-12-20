@@ -8,7 +8,6 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
-
     <style>
         /* --- Global Styles --- */
         body {
@@ -19,7 +18,6 @@
             margin: 0;
             padding: 0;
         }
-
         .container {
             max-width: 900px;
             margin: 30px auto;
@@ -28,51 +26,43 @@
             border-radius: 12px;
             box-shadow: 0 6px 20px rgba(0, 0, 0, 0.07);
         }
-
         /* --- Header & Instructor Info --- */
         .header {
             text-align: center;
             padding-bottom: 25px;
             border-bottom: 2px solid #e0e0e0;
         }
-
         .header h1 {
             color: #2c3e50; /* A deep, professional blue */
             font-size: 2.5rem;
             font-weight: 700;
             margin-bottom: 10px;
         }
-
         .header h2 {
             color: #34495e; /* A slightly lighter blue-gray */
             font-size: 1.5rem;
             font-weight: 400;
             margin-bottom: 15px;
         }
-
         .header .instructor-info p {
             font-size: 1.1rem;
             color: #555;
             margin: 5px 0;
         }
-
         .header .instructor-info a {
             color: #3498db; /* A bright, clear blue for the link */
             text-decoration: none;
             font-weight: 700;
             transition: color 0.3s ease;
         }
-
         .header .instructor-info a:hover {
             color: #2980b9;
             text-decoration: underline;
         }
-
         /* --- Section Styling --- */
         .course-section {
             margin-top: 35px;
         }
-
         .course-section h3 {
             font-size: 1.75rem;
             font-weight: 700;
@@ -81,13 +71,11 @@
             padding-bottom: 8px;
             margin-bottom: 20px;
         }
-
         /* --- Course Description & Topics --- */
         .course-description p {
             font-size: 1.1rem;
             color: #444;
         }
-
         .topics-list {
             list-style: none;
             padding: 0;
@@ -96,7 +84,6 @@
             gap: 12px; /* Spacing between the topic bubbles */
             margin-top: 15px;
         }
-
         .topics-list li {
             font-size: 0.95rem;
             font-weight: 700;
@@ -106,7 +93,6 @@
             border-radius: 20px; /* This creates the "pill" or "bubble" shape */
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
         }
-
         /* --- Course Notes Buttons --- */
         .button-container {
             display: grid;
@@ -114,7 +100,6 @@
             gap: 25px; /* Space between the buttons */
             margin-top: 20px;
         }
-
         .btn {
             display: block;
             padding: 20px 15px;
@@ -129,29 +114,23 @@
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
         }
-
         .btn:hover {
             transform: translateY(-3px); /* Lifts the button slightly */
             box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
         }
-
         .btn-summarized {
             background: linear-gradient(135deg, #3498db, #2980b9); /* Blue gradient */
         }
-
         .btn-expanded {
             background: linear-gradient(135deg, #2ecc71, #27ae60); /* Green gradient */
         }
-
         .btn-purple {
             background: linear-gradient(135deg, #8e44ad, #9b59b6); /* Purple gradient */
         }
-
         /* --- Lecture Video Styling --- */
         .video-container {
             margin-top: 20px;
         }
-
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
@@ -160,7 +139,6 @@
             border-radius: 8px; /* Match site aesthetic */
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
         }
-
         .video-wrapper iframe {
             position: absolute;
             top: 0;
@@ -169,7 +147,6 @@
             height: 100%;
             border: none;
         }
-
         .video-title {
             font-size: 1.1rem;
             font-weight: 700;
@@ -190,36 +167,117 @@
             border-radius: 8px;
         }
 
+        /* --- Assignment Alert Box --- */
+        .assignment-alert {
+            background: linear-gradient(135deg, #e74c3c, #c0392b);
+            border-radius: 10px;
+            padding: 20px 25px;
+            margin-top: 20px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulse-glow {
+            0%, 100% {
+                box-shadow: 0 4px 15px rgba(231, 76, 60, 0.4);
+            }
+            50% {
+                box-shadow: 0 4px 25px rgba(231, 76, 60, 0.7);
+            }
+        }
+        
+        .assignment-alert .alert-icon {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+        
+        .assignment-alert .alert-title {
+            color: #ffffff;
+            font-size: 1.3rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .assignment-alert .alert-message {
+            color: #fff5f5;
+            font-size: 1.05rem;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .assignment-alert .deadline {
+            background-color: rgba(255, 255, 255, 0.2);
+            color: #ffffff;
+            font-weight: 700;
+            font-size: 1.15rem;
+            padding: 10px 20px;
+            border-radius: 6px;
+            display: inline-block;
+            margin: 0 auto 15px;
+            width: fit-content;
+        }
+        
+        .assignment-alert .deadline-container {
+            text-align: center;
+        }
+        
+        .assignment-alert .btn-assignment {
+            display: block;
+            width: fit-content;
+            margin: 0 auto;
+            padding: 14px 30px;
+            background-color: #ffffff;
+            color: #c0392b;
+            font-size: 1.1rem;
+            font-weight: 700;
+            text-decoration: none;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+        }
+        
+        .assignment-alert .btn-assignment:hover {
+            background-color: #fff5f5;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
         /* --- Responsive Design --- */
         @media (max-width: 800px) { /* Added breakpoint for buttons */
              .button-container {
                 grid-template-columns: 1fr;
             }
         }
-
         @media (max-width: 600px) {
             .container {
                 margin: 15px;
                 padding: 20px 25px;
             }
-
             .header h1 {
                 font-size: 2rem;
             }
-
             .header h2 {
                 font-size: 1.25rem;
             }
-
             /* Stack buttons on small screens */
             .button-container {
                 grid-template-columns: 1fr;
+            }
+            .assignment-alert {
+                padding: 15px 18px;
+            }
+            .assignment-alert .alert-title {
+                font-size: 1.1rem;
             }
         }
     </style>
 </head>
 <body>
-
     <div class="container">
         <header class="header">
             <h1>Introduction to Information Systems for MIS</h1>
@@ -230,7 +288,6 @@
                 <p><a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a></p>
             </div>
         </header>
-
         <main>
             <section class="course-section course-description">
                 <h3>About This Course</h3>
@@ -249,7 +306,6 @@
                     <li>AI (Artificial Intelligence)</li>
                 </ul>
             </section>
-
             <section class="course-section course-materials">
                 <h3>Course Notes</h3>
                 <div class="button-container">
@@ -266,7 +322,6 @@
                     </a>
                 </div>
             </section>
-
             <section class="course-section lecture-recordings">
                 <h3>Lecture Recordings - 8:15 Group</h3>
                 <div class="video-container">
@@ -275,35 +330,30 @@
                     </div>
                     <p class="video-title">Lecture 1 - 31.10.2025 - Introduction to Information Systems - TPS, MIS, ESS</p>
                 </div>
-
                 <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/h8K1x0qPjDE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 2 - 7.11.2025 - TPS, MIS, ESS Exercises & Intro to CRM</p>
                 </div>
-
                  <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/P6x57sbYbJs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 3 - 14.11.2025 - CRM</p>
                 </div>
-
                  <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/iVIK4J0xSJw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 4 - 21.11.2025 - ERP</p>
                 </div>
-
                 <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/YZQBvm6jXvg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 5 - 28.11.2025 - E-Commerce</p>
                 </div>
-
                  <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/duwJqYx5KbI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
@@ -317,6 +367,27 @@
                     </div>
                     <p class="video-title">Lecture 7 - 12.12.2025 - Hardware - CPU Web Rendering, GPU, RAM</p>
                 </div>
+
+                <!-- Lecture 8 - 8:15 Group -->
+                <div class="video-container">
+                    <div class="video-wrapper">
+                        <iframe src="https://www.youtube.com/embed/J8iJm_TFdDY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                    </div>
+                    <p class="video-title">Lecture 8 - 19.12.2025 - Hardware - Part 2</p>
+                </div>
+
+                <!-- Assignment Alert for 8:15 Group -->
+                <div class="assignment-alert">
+                    <div class="alert-icon">⚠️ 📝</div>
+                    <div class="alert-title">Assignment Required!</div>
+                    <p class="alert-message">An assignment related to this lecture must be submitted.</p>
+                    <div class="deadline-container">
+                        <div class="deadline">📅 Deadline: 26.12.2025 at 8:15 SHARP</div>
+                    </div>
+                    <a href="AssMeet8-Hardware.html" class="btn-assignment" target="_blank">
+                        📋 Open Assignment
+                    </a>
+                </div>
                
                 
                 <h3>Lecture Recordings - 10:55 Group</h3>
@@ -327,55 +398,67 @@
                     <p class="video-title">Lecture 1 - 31.10.2025 - Introduction to Information Systems - TPS, MIS, ESS</p>
                 </div>
             </section>
-
              <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/fIPSWHLOZb0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 2 - 7.11.2025 - TPS, MIS, ESS Exercises & Intro to CRM</p>
                 </div>
-
-
               <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/f_YlKhlEtX8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 3 - 14.11.2025 - CRM</p>
                 </div>
-
-
              <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/maJLc_F81dQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 4 - 21.11.2025 - ERP</p>
                 </div>
-
               <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/2fSHHRVvJho" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 5 - 28.11.2025 - E-Commerce</p>
                 </div>
-
                <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/AZGbU4yPZ2o" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 6 - 5.12.2025 - Hardware - CPU</p>
                 </div>
-
              <div class="video-container">
                     <div class="video-wrapper">
                         <iframe src="https://www.youtube.com/embed/qVsDY7q243E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
                     </div>
                     <p class="video-title">Lecture 7 - 12.12.2025 - Hardware - CPU Web Rendering, GPU, RAM</p>
                 </div>
+
+            <!-- Lecture 8 - 10:55 Group -->
+            <div class="video-container">
+                <div class="video-wrapper">
+                    <iframe src="https://www.youtube.com/embed/2vWOEitq2iw" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+                </div>
+                <p class="video-title">Lecture 8 - 19.12.2025 - Hardware - Part 2</p>
+            </div>
+
+            <!-- Assignment Alert for 10:55 Group -->
+            <div class="assignment-alert">
+                <div class="alert-icon">⚠️ 📝</div>
+                <div class="alert-title">Assignment Required!</div>
+                <p class="alert-message">An assignment related to this lecture must be submitted.</p>
+                <div class="deadline-container">
+                    <div class="deadline">📅 Deadline: 26.12.2025 at 8:15 SHARP</div>
+                </div>
+                <a href="AssMeet8-Hardware.html" class="btn-assignment" target="_blank">
+                    📋 Open Assignment
+                </a>
+            </div>
                
             
             
         </main>
     </div>
-
 </body>
 </html>
