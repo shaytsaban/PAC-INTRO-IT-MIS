@@ -4,19 +4,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BGU Accounting Marathon 2026A | Dr. Shay Tsaban</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+    <title>Introduction to Information Systems - 2026 A</title>
 
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <style>
         :root {
-            --primary: #f97316;
-            /* Orange for BGU vibes */
-            --primary-dark: #ea580c;
-            --dark-bg: #0f172a;
-            --card-bg: #1e293b;
-            --text-light: #f1f5f9;
-            --text-gray: #94a3b8;
-            --accent-gradient: linear-gradient(135deg, #f97316 0%, #db2777 100%);
+            --primary: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary: #0f172a;
+            --accent: #3b82f6;
+            --background: #f8fafc;
+            --surface: #ffffff;
+            --text-main: #1e293b;
+            --text-muted: #64748b;
+            --gradient-bg: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.05);
+            --card-hover-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+            --mikud-gradient: linear-gradient(135deg, #f97316, #ea580c);
         }
 
         * {
@@ -27,142 +37,278 @@
 
         body {
             font-family: 'Outfit', sans-serif;
-            background-color: var(--dark-bg);
-            color: var(--text-light);
+            background: var(--gradient-bg);
+            color: var(--text-main);
             line-height: 1.6;
-            overflow-x: hidden;
+            min-height: 100vh;
+            padding-bottom: 4rem;
         }
 
-        /* Background Gradients */
-        .bg-glow {
-            position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(249, 115, 22, 0.15) 0%, rgba(15, 23, 42, 0) 70%);
-            top: -200px;
-            left: 50%;
-            transform: translateX(-50%);
-            z-index: -1;
-            pointer-events: none;
+        /* --- Animations --- */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        @keyframes pulse-soft {
+            0% {
+                box-shadow: 0 0 0 0 rgba(234, 88, 12, 0.4);
+            }
+
+            70% {
+                box-shadow: 0 0 0 10px rgba(234, 88, 12, 0);
+            }
+
+            100% {
+                box-shadow: 0 0 0 0 rgba(234, 88, 12, 0);
+            }
+        }
+
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .delay-1 {
+            animation-delay: 0.1s;
+        }
+
+        .delay-2 {
+            animation-delay: 0.2s;
+        }
+
+        .delay-3 {
+            animation-delay: 0.3s;
+        }
+
+        /* --- Layout --- */
         .container {
-            max-width: 1200px;
+            max-width: 1100px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 0 20px;
         }
 
-        /* Hero Section */
         header {
-            padding: 6rem 0 4rem;
             text-align: center;
-        }
-
-        .badge {
-            display: inline-block;
-            padding: 0.5rem 1.5rem;
-            background: rgba(249, 115, 22, 0.1);
-            color: var(--primary);
-            border: 1px solid rgba(249, 115, 22, 0.2);
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.875rem;
+            padding: 4rem 1rem 3rem;
+            background: linear-gradient(to bottom, #ffffff, rgba(255, 255, 255, 0));
             margin-bottom: 2rem;
-            letter-spacing: 0.05em;
-            text-transform: uppercase;
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
         }
 
         h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 3.5rem;
-            font-weight: 700;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            background: linear-gradient(to right, #ffffff, #94a3b8);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            background: linear-gradient(135deg, #1e293b, #3b82f6);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.02em;
         }
 
-        .subtitle {
-            font-size: 1.25rem;
-            color: var(--text-gray);
-            max-width: 600px;
-            margin: 0 auto 3rem;
+        h2 {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            font-weight: 500;
+            margin-bottom: 1.5rem;
         }
 
-        /* Featured Button */
-        .cta-button {
+        .instructor-card {
             display: inline-flex;
+            flex-direction: column;
             align-items: center;
-            gap: 0.75rem;
-            background: var(--accent-gradient);
-            color: white;
-            font-weight: 700;
-            font-size: 1.125rem;
-            padding: 1.25rem 2.5rem;
-            border-radius: 1rem;
-            text-decoration: none;
-            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-            box-shadow: 0 10px 25px -5px rgba(249, 115, 22, 0.4);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .cta-button:hover {
-            transform: translateY(-4px) scale(1.02);
-            box-shadow: 0 20px 35px -5px rgba(249, 115, 22, 0.5);
-        }
-
-        .cta-button::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(rgba(255, 255, 255, 0.2), transparent);
-            opacity: 0;
-            transition: opacity 0.3s;
-        }
-
-        .cta-button:hover::after {
-            opacity: 1;
-        }
-
-        /* Sections */
-        .section-title {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-            border-left: 4px solid var(--primary);
-            padding-left: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .marathon-grid {
-            display: grid;
-            gap: 2rem;
-            margin-bottom: 4rem;
-        }
-
-        /* Cards */
-        .video-card {
-            background: var(--card-bg);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 1.5rem;
-            overflow: hidden;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-radius: 999px;
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
             transition: transform 0.3s ease;
         }
 
+        .instructor-card:hover {
+            transform: translateY(-2px);
+        }
+
+        .instructor-card strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .instructor-card a {
+            color: var(--primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.2s;
+        }
+
+        .instructor-card a:hover {
+            color: var(--primary-dark);
+        }
+
+        /* --- Main Content --- */
+        main {
+            display: grid;
+            gap: 3rem;
+        }
+
+        section {
+            background: var(--surface);
+            border-radius: 24px;
+            padding: 2.5rem;
+            box-shadow: var(--card-shadow);
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        section:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--card-hover-shadow);
+        }
+
+        section h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--secondary);
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        /* --- Topics --- */
+        .topics-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            list-style: none;
+            margin-top: 1.5rem;
+        }
+
+        .topics-list li {
+            font-size: 0.95rem;
+            font-weight: 600;
+            background: #f1f5f9;
+            color: var(--text-main);
+            padding: 0.6rem 1.25rem;
+            border-radius: 999px;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .topics-list li:hover {
+            background: #e0f2fe;
+            color: var(--primary);
+            border-color: #bae6fd;
+            transform: scale(1.05);
+        }
+
+        /* --- Buttons --- */
+        .button-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1.25rem;
+            margin-top: 1.5rem;
+        }
+
+        .btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1.25rem 1.5rem;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 16px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            border: none;
+            color: white;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            gap: 0.5rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .btn:active {
+            transform: translateY(-1px);
+        }
+
+        .btn-blue {
+            background: linear-gradient(135deg, #3b82f6, #2563eb);
+        }
+
+        .btn-green {
+            background: linear-gradient(135deg, #10b981, #059669);
+        }
+
+        .btn-purple {
+            background: linear-gradient(135deg, #8b5cf6, #7c3aed);
+        }
+
+        .btn-mikud {
+            background: var(--mikud-gradient);
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-mikud:hover {
+            animation: pulse-soft 2s infinite;
+        }
+
+        .badge-important {
+            background: rgba(255, 255, 255, 0.9);
+            color: #c2410c;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 99px;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 0.05em;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            margin-left: 8px;
+        }
+
+        /* --- Videos --- */
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 1.5rem;
+        }
+
+        .video-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e2e8f0;
+        }
+
         .video-card:hover {
-            transform: translateY(-5px);
-            border-color: rgba(249, 115, 22, 0.3);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
         .video-wrapper {
             position: relative;
             padding-bottom: 56.25%;
+            /* 16:9 */
             height: 0;
             background: #000;
         }
@@ -176,216 +322,371 @@
             border: none;
         }
 
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .tag {
-            display: inline-block;
-            padding: 0.25rem 0.75rem;
-            background: rgba(148, 163, 184, 0.1);
-            color: var(--primary);
-            border-radius: 6px;
-            font-size: 0.75rem;
+        .video-title {
+            padding: 1rem;
+            font-size: 0.95rem;
             font-weight: 600;
-            text-transform: uppercase;
-            margin-bottom: 0.75rem;
-        }
-
-        .card-title {
-            font-size: 1.25rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .card-date {
-            font-size: 0.875rem;
-            color: var(--text-gray);
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        /* Footer */
-        footer {
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
-            padding: 4rem 0;
-            margin-top: 4rem;
+            color: var(--text-main);
             text-align: center;
+            background: #fff;
         }
 
-        .instructor-box {
-            background: rgba(255, 255, 255, 0.03);
-            display: inline-block;
-            padding: 2rem 3rem;
-            border-radius: 1.5rem;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .instructor-email {
-            color: var(--primary);
-            font-weight: 600;
-            text-decoration: none;
-            transition: color 0.2s;
-            font-size: 1.1rem;
-        }
-
-        .instructor-email:hover {
+        /* --- Alerts --- */
+        .assignment-alert {
+            background: linear-gradient(135deg, #ef4444, #dc2626);
+            border-radius: 20px;
+            padding: 2rem;
             color: white;
-            text-decoration: underline;
+            text-align: center;
+            margin: 2rem 0;
+            box-shadow: 0 10px 25px -5px rgba(220, 38, 38, 0.4);
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Animations */
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
+        .assignment-alert::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(45deg, transparent 40%, rgba(255, 255, 255, 0.1) 50%, transparent 60%);
+            background-size: 200% 100%;
+            animation: shine 3s infinite linear;
+            pointer-events: none;
+        }
+
+        @keyframes shine {
+            0% {
+                background-position: 100% 0;
             }
 
-            to {
-                opacity: 1;
-                transform: translateY(0);
+            100% {
+                background-position: -100% 0;
             }
         }
 
-        .animate-in {
-            animation: fadeUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
-            opacity: 0;
+        .alert-content {
+            position: relative;
+            z-index: 1;
         }
 
-        .delay-1 {
-            animation-delay: 0.1s;
+        .alert-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
-        .delay-2 {
-            animation-delay: 0.3s;
+        .deadline-badge {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+            font-weight: 600;
+            margin: 1rem 0;
+            border: 1px solid rgba(255, 255, 255, 0.2);
         }
 
-        .delay-3 {
-            animation-delay: 0.5s;
+        .btn-assignment {
+            display: inline-block;
+            background: white;
+            color: #dc2626;
+            padding: 0.8rem 2rem;
+            border-radius: 12px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: transform 0.2s;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-assignment:hover {
+            transform: scale(1.05);
+        }
+
+        /* --- Footer --- */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            font-size: 0.9rem;
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (max-width: 640px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 2rem;
             }
 
-            .container {
-                padding: 0 1.5rem;
+            .button-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 1.5rem;
             }
         }
     </style>
 </head>
 
 <body>
+    <div class="container">
 
-    <div class="bg-glow"></div>
+        <!-- Header -->
+        <header class="animate-fade-in">
+            <h1>Introduction to Information Systems</h1>
+            <h2>Semester 2026 A - MIS</h2>
 
-    <header class="container animate-in">
-        <span class="badge">Ben-Gurion University • 2026A</span>
-        <h1>Basics of Accounting<br><span style="color: var(--primary)">Marathon</span></h1>
-        <p class="subtitle">Comprehensive preparation for the final exam. Master the core concepts with intense focused
-            sessions.</p>
-
-        <div class="animate-in delay-1">
-            <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQB_41gQSwASQ5-3n6lN1CDlARctsXjqxs0M5hXR76jQab4?e=0oUTw9"
-                class="btn btn-mikud">
-                MIKUD 🔥 <span class="badge-important">Important</span>
-            </a>
-
-            <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQDqgfkf41fLR5Xx2cjhfixqAYgOUbk8vChCEXWp8WSYIpg?e=qJrKPL"
-                class="btn btn-mikud">
-                Marathon File 📋 <span class="badge-important">Important!</span>
-            </a>
-            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-gray); opacity: 0.8;">Includes all written
-                data from the marathon</p>
-        </div>
-    </header>
-
-    <main class="container">
-
-        <div class="animate-in delay-2">
-            <h2 class="section-title">
-                <span>Marathon Recordings</span>
-            </h2>
-
-            <div class="marathon-grid">
-
-                <!-- Marathon 1 Card -->
-                <article class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/bnFHy0nAUEs" title="Marathon 1 Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="card-content">
-                        <div class="flex-row"
-                            style="display: flex; justify-content: space-between; align-items: start;">
-                            <div>
-                                <span class="tag">Marathon 1 of 4</span>
-                                <h3 class="card-title">Basics of Mass Question - Journal Entries & Transactions</h3>
-                            </div>
-                        </div>
-                        <div class="card-date" style="margin-top: 1rem;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            Recorded on 22.1.2026
-                        </div>
-                    </div>
-                </article>
-
-                <!-- Marathon 2 Card -->
-                <article class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/JMDt21yvd-8" title="Marathon 2 Video"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            allowfullscreen></iframe>
-                    </div>
-                    <div class="card-content">
-                        <div class="flex-row"
-                            style="display: flex; justify-content: space-between; align-items: start;">
-                            <div>
-                                <span class="tag">Marathon 2 of 4</span>
-                                <h3 class="card-title">Property, Plant and Equipment</h3>
-                            </div>
-                        </div>
-                        <div class="card-date" style="margin-top: 1rem;">
-                            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
-                                <line x1="16" y1="2" x2="16" y2="6"></line>
-                                <line x1="8" y1="2" x2="8" y2="6"></line>
-                                <line x1="3" y1="10" x2="21" y2="10"></line>
-                            </svg>
-                            Recorded on 30.1.2026
-                        </div>
-                    </div>
-                </article>
-
+            <div class="instructor-card">
+                <div>Instructor: <strong>Dr. Shay Tsaban, Ph.D.</strong></div>
+                <a href="mailto:shay.tsaban@gmail.com">shay.tsaban@gmail.com</a>
             </div>
-        </div>
+        </header>
 
-    </main>
+        <main>
+            <!-- About Section -->
+            <section class="animate-fade-in delay-1">
+                <h3>📚 About This Course</h3>
+                <p style="color: var(--text-muted); font-size: 1.1rem; margin-bottom: 1.5rem;">
+                    Welcome! We will explore the foundational concepts and modern applications of Information Systems,
+                    understanding how technology drives modern business.
+                </p>
+                <ul class="topics-list">
+                    <li>TPS</li>
+                    <li>MIS</li>
+                    <li>ESS</li>
+                    <li>CRM</li>
+                    <li>ERP</li>
+                    <li>E-Commerce</li>
+                    <li>Hardware & Software</li>
+                    <li>BI (Business Intelligence)</li>
+                    <li>AI & LLMs</li>
+                </ul>
+            </section>
 
-    <footer class="animate-in delay-3">
-        <div class="instructor-box">
-            <h3 style="color: white; font-size: 1.5rem; margin-bottom: 1rem;">Dr. Shay Tsaban</h3>
-            <p style="color: var(--text-gray); margin-bottom: 1.5rem;">For questions, support, and further
-                clarifications.</p>
-            <a href="mailto:shay.tsaban@gmail.com" class="instructor-email">
-                shay.tsaban@gmail.com
-            </a>
-        </div>
-        <p style="margin-top: 3rem; font-size: 0.875rem; color: #475569;">© 2026 BGU Accounting Dept.</p>
-    </footer>
+            <!-- Resources Section -->
+            <section class="animate-fade-in delay-2">
+                <h3>📥 Course Materials</h3>
+                <div class="button-grid">
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/Ef9LvV0nSnZMtgSvrmf3PmQB9zwGSGZjVbyx5fJjJEKLuA?e=6aktDG"
+                        class="btn btn-blue">
+                        Summarized Notes
+                    </a>
 
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/ES0QAYMl-m9Dq8kohNjZKXMBnZsQpIUNNpZmQdBWdqv8jQ?e=VRYwzP"
+                        class="btn btn-purple">
+                        Exercises & Solutions
+                    </a>
+
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/Efaf5c-nLexIvOVSa18c00AB3nij2hXpK-g1JesjweYonQ?e=p1h1BP"
+                        class="btn btn-green">
+                        Expanded Notes
+                    </a>
+
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQB_41gQSwASQ5-3n6lN1CDlARctsXjqxs0M5hXR76jQab4?e=0oUTw9"
+                        class="btn btn-mikud">
+                        MIKUD 🔥 <span class="badge-important">Important</span>
+                    </a>
+
+                    <a href="https://mypac-my.sharepoint.com/:w:/g/personal/shay_tsaban_pac_org_il/IQDqgfkf41fLR5Xx2cjhfixqAYgOUbk8vChCEXWp8WSYIpg?e=qJrKPL"
+                        class="btn btn-mikud">
+                        Marathon File 📋 <span class="badge-important">Important!</span>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Lectures Group 8:15 -->
+            <section class="animate-fade-in delay-3">
+                <h3>🎥 Lecture Recordings - 8:15 Group</h3>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/JxPCbpT4_BE"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 1 - Intro, TPS, MIS, ESS</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/h8K1x0qPjDE"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 2 - Exercises & Intro to CRM</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/P6x57sbYbJs"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 3 - CRM</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/iVIK4J0xSJw"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 4 - ERP</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/YZQBvm6jXvg"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 5 - E-Commerce</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/duwJqYx5KbI"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 6 - Hardware (CPU)</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/z2jxaoZdpYw"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 7 - CPU Rendering, GPU</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/J8iJm_TFdDY"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 8 - Hardware Part 2</div>
+                    </div>
+                </div>
+
+
+
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/nOvy3nraOAw"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 9 - Hardware Exercises</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/Z_KBlYzakiQ"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 10 - AI & Local LLM Part 1</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/STQc6lXuW4U"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 11 - AI & Local LLM Part 2</div>
+                    </div>
+                </div>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/xA6C6VU5YlQ"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 12 - Business Intelligence (16.1.2026)</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/VVzWxwLRaHA"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Leture 13 - Reversal Towards Final Exam (23.1.2026)</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Lectures Group 10:55 -->
+            <section class="animate-fade-in delay-3" style="margin-top: 1rem;">
+                <h3>🎥 Lecture Recordings - 10:55 Group</h3>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/ZXhvvQosRyY"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 1 - Intro, TPS, MIS, ESS</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/fIPSWHLOZb0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 2 - Exercises & Intro to CRM</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/f_YlKhlEtX8"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 3 - CRM</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/maJLc_F81dQ"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 4 - ERP</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/2fSHHRVvJho"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 5 - E-Commerce</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/AZGbU4yPZ2o"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 6 - Hardware (CPU)</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/qVsDY7q243E"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 7 - CPU Rendering, GPU</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/2vWOEitq2iw"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 8 - Hardware Part 2</div>
+                    </div>
+                </div>
+
+
+
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/QBInOAiJUwg"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 9 - Hardware Exercises</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/3YeSxZ1kBko"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 10 - AI & Local LLM Part 1</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/eTe-z93jHNM"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 11 - AI & Local LLM Part 2</div>
+                    </div>
+                </div>
+                <div class="video-grid">
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/w0F0LJML1AU"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Lecture 12 - Business Intelligence (16.1.2026)</div>
+                    </div>
+                    <div class="video-card">
+                        <div class="video-wrapper"><iframe src="https://www.youtube.com/embed/UCHiy25Pu64"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allowfullscreen></iframe></div>
+                        <div class="video-title">Leture 13 - Reversal Towards Final Exam (23.1.2026)</div>
+                    </div>
+                </div>
+            </section>
+
+        </main>
+
+        <footer>
+            <p>&copy; 2026 Dr. Shay Tsaban. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 
 </html>
